@@ -27,6 +27,7 @@
 	<properties>
 		<java-version>1.8</java-version>
 		<mitreid-connect-version>1.3.1</mitreid-connect-version>
+		<jacoco.version>0.8.2</jacoco.version>
 	</properties>
 	
 	<dependencyManagement>
@@ -196,6 +197,25 @@
 				    </webApp>
 			  </configuration>
 			</plugin>
+			<plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+              <executions>
+               <execution>
+                   <goals>
+                      <goal>prepare-agent</goal>
+                   </goals>
+                </execution>
+                <execution>
+                   <id>report</id>
+                   <phase>prepare-package</phase>
+                <goals>
+                   <goal>report</goal>
+                </goals>
+               </execution>
+              </executions>
+            </plugin>
 		</plugins>
 	</build>
 	<name>simple-web-app</name>
